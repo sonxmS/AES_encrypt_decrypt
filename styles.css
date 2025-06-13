@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    padding: 1rem 0rem;
+    min-height: 100vh;
+    height: auto;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #000000, #0a0a0a);
+    color: #f0f0f0;
+}
+
+.container {
+    width: 90%;
+    height: 70vh;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 500px;
+    max-height: 700px;
+    transition: transform 0.3s ease, box-shadow 0.4s ease, border 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 16px #ffffff, 0 0 24px #00fff720;
+    border: 1px solid #ffffff;
+}
+
+.card h2 {
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    color: #ffffffdd;
+    text-shadow: 0 0 2px #00fff7;
+}
+
+textarea {
+    font-size: 1.1rem;
+    width: 100%;
+    height: 200px;
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    resize: none;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    color: #f9f9f9;
+    outline: none;
+    backdrop-filter: blur(4px);
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea:focus {
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 10px #ffffffaa;
+}
+
+.btn {
+    padding: 0.75rem 1.6rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    border: 2px solid;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+
+.btn-box {
+    display: flex;
+    /* justify-content: space-around; */
+    gap: 18px;
+    align-items: center;
+}
+
+.btn:hover {
+    box-shadow: 0 0 10px #ffffff;
+}
+
+.btn-encrypt {
+    border-color: #00ffae;
+}
+
+.btn-encrypt:hover {
+    box-shadow: 0 0 10px #00ffae;
+}
+
+.btn-decrypt {
+    border-color: #ff4da6;
+}
+
+.btn-decrypt:hover {
+    box-shadow: 0 0 10px #ff4da6;
+}
+
+.icon {
+    width: 19px;
+    height: 19px;
+    color: rgb(255, 255, 255);
+}
+
+.copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border: 2px solid white;
+    border-radius: 30px;
+    background: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.copy-btn:hover {
+    box-shadow: 0 0 10px #ffffff;
+    border-color: #ffffff;
+}
+
+.notif-box {
+    color: #ff4da6;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+#copy-notif-encrypt,
+#copy-notif-decrypt {
+    display: flex;
+    justify-content: end;
+}
+
+.notifBox {
+    height: 20px;
+
+    line-height: 20px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    color: rgb(12, 175, 12);
+    font-weight: bold;
+    text-align: center;
+}
+
+.notifBox.visible {
+    opacity: 1;
+}
+

@@ -47,7 +47,7 @@ body {
 
 .card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 0 16px #ffffff, 0 0 24px #00fff720;
+    /* box-shadow: 0 0 16px #ffffff, 0 0 24px #00fff720; */
     border: 1px solid #ffffff;
 }
 
@@ -74,9 +74,9 @@ textarea {
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
-textarea:focus {
+textarea:hover {
     border: 1px solid #ffffff;
-    box-shadow: 0 0 10px #ffffffaa;
+    /* box-shadow: 0 0 10px #ffffffaa; */
 }
 
 .btn {

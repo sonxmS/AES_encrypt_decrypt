@@ -1,4 +1,4 @@
-// const { error } = require("console");
+
 
 async function getEncryptedval() {
     const value = document.getElementById("encrypt").value;
@@ -6,15 +6,29 @@ async function getEncryptedval() {
     const resultBox = document.getElementById("result-encrypt");
     resultBox.textContent = "";
     errorBox.textContent = "";
+    let jsonData;
     try {
-        const data = await fetch(`https://encrypt-decrypt-api.onrender.com/encrypt/?encryptvalue=${value}`)
+        jsonData = JSON.parse(value);  
+    } catch (err) {
+        errorBox.textContent = "Invalid JSON format!";
+        return;
+    }
+
+    try {
+        const data = await fetch("http://localhost:3000/encrypt", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(jsonData)
+        });
         if (!data.ok) {
-            const output = await data.text();
-            errorBox.textContent = output;
+            const output = await data.json();
+            errorBox.textContent = output.error;
         }
         else {
-            const encryptedVal = await data.text();
-            resultBox.innerHTML = encryptedVal;
+            const encryptedVal = await data.json();
+            resultBox.innerHTML = encryptedVal.encrypted;
         }
     } catch (error) {
         console.log(error)
@@ -67,17 +81,28 @@ async function getDecryptedVal() {
     resultBox.textContent = "";
     errorBox.textContent = "";
     try {
-        const response = await fetch(`https://encrypt-decrypt-api.onrender.com/decrypt/?decryptvalue=${value}`)
+        const response = await fetch("http://localhost:3000/decrypt", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ encrypted: value }) 
+        });
         if (!response.ok) {
             const output = await response.text();
-            errorBox.textContent = output;
+            errorBox.textContent = "Provide valid encrypted characters!";
         }
+
         else {
-            const decryptval = await response.text();
-            resultBox.innerHTML = decryptval;
+            const decryptObj = await response.json();
+            const result = decryptObj.decrypted;
+            resultBox.textContent = JSON.stringify(result,null,2);
         }
     } catch (error) {
         console.log(error)
         errorBox.textContent = "Something wrong,please try later"
     }
 }
+
+
+

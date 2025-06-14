@@ -1,4 +1,4 @@
-## 🔐 Encrypt & Decrypt API
+## 🔐AES Encrypt & Decrypt API
 
 The app has two basic functions:
 

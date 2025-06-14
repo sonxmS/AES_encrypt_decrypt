@@ -2,10 +2,8 @@
 
 The app has two basic functions:
 
-- **/encrypt**: Takes a string (`encryptvalue`) and returns it wrapped with `x` on both sides.  
-  _Example_: `hello` → `xhellox`
+- **/encrypt**: Takes a **JSON** string (`encryptvalue`) and encrypts it using `AES Encryption`
 
-- **/decrypt**: Takes a string (`decryptvalue`) wrapped in `x` and removes the outer characters.  
-  _Example_: `xhellox` → `hello`
+- **/decrypt**: Takes an encrypted string (`decryptvalue`) as input and returns the original JSON string
 
 Inputs are validated using Zod to ensure correct format.

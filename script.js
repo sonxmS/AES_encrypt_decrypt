@@ -7,7 +7,7 @@ async function getEncryptedval() {
     resultBox.textContent = "";
     errorBox.textContent = "";
     try {
-        const data = await fetch(`http://localhost:3000/encrypt/?encryptvalue=${value}`)
+        const data = await fetch(`https://encrypt-decrypt-api.onrender.com/encrypt/?encryptvalue=${value}`)
         if (!data.ok) {
             const output = await data.text();
             errorBox.textContent = output;
@@ -67,7 +67,7 @@ async function getDecryptedVal() {
     resultBox.textContent = "";
     errorBox.textContent = "";
     try {
-        const response = await fetch(`http://localhost:3000/decrypt/?decryptvalue=${value}`)
+        const response = await fetch(`https://encrypt-decrypt-api.onrender.com/decrypt/?decryptvalue=${value}`)
         if (!response.ok) {
             const output = await response.text();
             errorBox.textContent = output;

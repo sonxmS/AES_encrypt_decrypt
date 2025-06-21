@@ -22,7 +22,7 @@ body {
     height: 70vh;
     max-width: 1000px;
     text-align: center;
-    
+
 }
 
 .card-container {
@@ -53,10 +53,10 @@ body {
 }
 
 .card h2 {
-    margin-bottom: 1.2rem;
+    margin-bottom: 0rem;
     font-size: 1.5rem;
     color: #ffffffdd;
-    text-shadow: 0 0 2px #00fff7;
+    text-shadow: 0 0 2px #a7c0bf;
 }
 
 textarea {
@@ -89,11 +89,10 @@ textarea:hover {
     cursor: pointer;
     background: transparent;
     color: white;
-    border: 2px solid;
+    border: 2px solid rgba(255, 255, 255, 0.15);
     transition: all 0.3s ease;
     position: relative;
 }
-
 .btn-box {
     display: flex;
     /* justify-content: space-around; */
@@ -101,24 +100,22 @@ textarea:hover {
     align-items: center;
 }
 
-.btn:hover {
-    box-shadow: 0 0 10px #ffffff;
-}
 
 .btn-encrypt {
-    border-color: #00ffae;
+    border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .btn-encrypt:hover {
-    box-shadow: 0 0 10px #00ffae;
+    /* box-shadow: 0 0 10px #00ffae; */
+    border-color: #00ffae;;
 }
 
 .btn-decrypt {
-    border-color: #ff4da6;
+    border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .btn-decrypt:hover {
-    box-shadow: 0 0 10px #ff4da6;
+    border-color: #ff4da6;
 }
 
 .icon {
@@ -132,7 +129,7 @@ textarea:hover {
     align-items: center;
     justify-content: center;
     padding: 0.75rem;
-    border: 2px solid white;
+    border: 2px solid rgba(255, 255, 255, 0.15);
     border-radius: 30px;
     background: transparent;
     transition: all 0.3s ease;
@@ -140,7 +137,7 @@ textarea:hover {
 }
 
 .copy-btn:hover {
-    box-shadow: 0 0 10px #ffffff;
+    /* box-shadow: 0 0 10px #ffffff; */
     border-color: #ffffff;
 }
 
@@ -172,3 +169,68 @@ textarea:hover {
     opacity: 1;
 }
 
+.top-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/*dropdown css*/
+
+.dropbtn {
+    margin-bottom: 13px;
+    background-color: transparent;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    border-color: #ffffff;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    background-color: rgb(20, 20, 20);;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 25px;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+}
+
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    box-sizing: border-box;
+    border-radius: 25px;
+    align-self: center;
+}
+
+.dropdown-content a:hover {
+    background-color: #42373756;
+    color: rgb(255, 255, 255);
+    
+}
+
+.dropdown-content.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}

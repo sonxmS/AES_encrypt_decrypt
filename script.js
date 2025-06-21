@@ -8,7 +8,7 @@ async function getEncryptedval() {
     errorBox.textContent = "";
     let jsonData;
     try {
-        jsonData = JSON.parse(value);  
+        jsonData = JSON.parse(value);
     } catch (err) {
         errorBox.textContent = "Invalid JSON format!";
         return;
@@ -86,7 +86,7 @@ async function getDecryptedVal() {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ encrypted: value }) 
+            body: JSON.stringify({ encrypted: value })
         });
         if (!response.ok) {
             const output = await response.text();
@@ -96,12 +96,40 @@ async function getDecryptedVal() {
         else {
             const decryptObj = await response.json();
             const result = decryptObj.decrypted;
-            resultBox.textContent = JSON.stringify(result,null,2);
+            resultBox.textContent = JSON.stringify(result, null, 2);
         }
     } catch (error) {
         console.log(error)
         errorBox.textContent = "Something wrong,please try later"
     }
+}
+
+function dropDown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+document.querySelectorAll(".dropbtn").forEach(button => {
+    button.addEventListener("click", function (e) {
+        const dropdown = this.nextElementSibling;
+        dropdown.classList.toggle("show");
+        e.stopPropagation(); // Prevent closing when clicking inside
+    });
+});
+
+
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+        document.querySelectorAll(".dropdown-content").forEach(drop => {
+            drop.classList.remove("show");
+        })
+    }
+};
+
+function selectOption(value, type) {
+    const btnId = `dropdownBtn-${type}`;
+    const dropdownId = `myDropdown-${type}`;
+    document.getElementById(btnId).innerText = value;
+    document.getElementById(dropdownId).classList.remove("show");
 }
 
 
